@@ -36,14 +36,14 @@ hwclock --systohc
 
 sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
-echo "LANG=en_US.UTF-8" > /etc/local.conf
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=us" > /etc/vconsole.conf
 
 mkdir -p /boot/EFI/GRUB
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
+mkdir -p /etc/iwd
 cp conf/iwd.conf /etc/iwd/main.conf
 systemctl enable systemd-resolved
 systemctl enable iwd
-
