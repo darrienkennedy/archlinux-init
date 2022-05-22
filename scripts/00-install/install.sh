@@ -17,8 +17,9 @@
 # mkswap /dev/{swap_partition}
 #
 # swapon /dev/{swap_partition}
-# mount /dev/{efi_partition} /mnt/boot
 # mount /dev/{root_partition} /mnt
+# mkdir -p /mnt/boot
+# mount /dev/{efi_partition} /mnt/boot
 #
 # pacstrap /mnt base linux linux-firmware
 # genfstab -U /mnt >> /mnt/etc/fstab
